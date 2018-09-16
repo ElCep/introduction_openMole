@@ -1,13 +1,21 @@
 <!doctype html>
-<html>
+<html lang="en">
+
 	<head>
 		<meta charset="utf-8">
+
+		<title>reveal.js – The HTML Presentation Framework</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
-
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/beige.css">
+		<link rel="stylesheet" href="css/theme/beige.css" id="theme">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -20,9 +28,17 @@
 			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
 		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
 	</head>
+
 	<body>
+
 		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section>
 					<h3>Exploring Agent Based Models </br>
@@ -68,60 +84,59 @@
 							<li><strong>gaps</strong> measurement between <strong>expected and simulated internal behaviours</strong></li>
 							<li>hunting for <strong>bugs</strong> and <strong>limiting cases</strong></li>
 						</ul>
+							<img src="./img/ComMod_simplification.svg" alt="surprise" width="40%" style="float: left;background:none; border:none; box-shadow:none;">
+					</section>
+					<section>
+						<h3>The benefits of exploration</h3>
 						<img src="./img/doc_emmett.gif" alt="surprise" width="40%" style="float: left;background:none; border:none; box-shadow:none;">
 						<p>In other words, a systematic process that stimulates the surprise effect. </p>
 					</section>
 				</section>
 				<section>
 					<section>
-						<h2>Sementic</h2>
-					</section>
-				</section>
-				<section>
-					<section>
-						<h2>Analyse de sensibilité ?</h2>
-						<h3>aproches et problèmes</h3>
+							<h2>model exploration :</h2>
+						<h3>aproaches and problems</h3>
 						<img src="./img/GAULD_2014_Present.jpg" alt="strategie" width="60%" style="background:none; border:none; box-shadow:none;">
 					</section>
 					<section>
-						<h3>De quoi on parle ?</h3>
+						<h3>What are we talking about?</h3>
 						<blockquote>
-						<small>&ldquo;Sensitivity analysis (SA) is used to explore the influence of varying inputs on the outputs of a simulation model&rdquo; (Ginot et al. 2006).</small>
+						<small>&ldquo;Sensitivity analysis (SA) is used to explore the influence of varying inputs on the outputs of a simulation model&rdquo; (Ginot et al. <a href="https://www.sciencedirect.com/science/article/pii/S0304380005004084?via%3Dihub">2006</a>).</small>
 						</blockquote>
 						<blockquote>
-						<small>&ldquo;By exploring the sensitivity of model output to changes in parameters, we learn about the relative importance of the various mechanisms represented in the model and how robust the model output is to parameter uncertainty.&rdquo; (Thiele et al. 2014).</small>
+						<small>&ldquo;By exploring the sensitivity of model output to changes in parameters, we learn about the relative importance of the various mechanisms represented in the model and how robust the model output is to parameter uncertainty.&rdquo; (Thiele et al. <a href="http://jasss.soc.surrey.ac.uk/17/3/11.html">2014</a>).</small>
 						</blockquote>
 						<ul>
-							<li>sensibilité locale</li>
-							<li>sensibilité globale</li>
+							<li>local sensitivity</li>
+							<li>global sensitivity</li>
 						</ul>
 					</section>
 					<section>
-						<h3>sensibilité locale : Comment ?</h3>
+						<h3>Local sensitivity: How?</h3>
 						<img src="./img/str_OAT.svg" alt="strategie" width="20%" style="float: left;background:none; border:none; box-shadow:none;">
 						 <ul style="width: 55%;float: center">
 							 <small>
 								 <li>+</li>
 												 <ul>
-														 <li>ludique</li>
+														 <li>playful</li>
 														 <li>interactif</li>
-														 <li>exploratoire</li>
-														 <li>incrémental</li>
-														 <li>essai erreur</li>
+														 <li>exploratory</li>
+														 <li>incremental</li>
+														 <li>trial and error</li>
 												 </ul>
 										 <li>-</li>
 														 <ul>
-																 <li>peu fiable</li>
-																 <li>couteux en temps</li>
-																 <li>limité</li>
-																 <li>difficilement reproductible</li>
+																 <li>unreliable</li>
+																 <li>time-consuming</li>
+																 <li>limited</li>
+																 <li>difficult to reproduce</li>
 														 </ul>
 								</small>
 						 </ul>
 						 <img src="./img/mitch-resnick-learning-spiral.jpg" alt="strategie" width="20%" style="float: rigth">
 					</section>
 					<section>
-						<h3>Une première étape pour systématiser OAT</h3>
+						<h3>A first step to systematize OAT</h3>
 						<img src="./img/parametre.svg" alt="strategie" width="300" style="float:left;background:none; border:none; box-shadow:none;">
 						<table id="fullTable", width="50%">
 							<tr>
@@ -129,104 +144,112 @@
 							</tr>
 							<tr>
 								<td>
-									un modèle simple,</br>
-									un plan d'expérience complet :</br>
-									P1 x P2 x P3
+									a simple model, </br>
+									a complete experimental design: </br>
+									P1 x P2 x P2 x P3
 								</td>
-						  </tr>
+							</tr>
 						</table>
 					</section>
 					<section>
-						<h3>Problème n°1 : Explosion combinatoire</h3>
+						<h3>Problem #1: Combinatorial explosion</h3>
 						<img src="./img/combinatoire.png" alt="combinatoire" width="500">
-						<p>Durée & Volumétrie impossible à gérer</p>
+						<p>Duration & Volumetry impossible to manage</p>
 					</section>
 					<section>
-						<h3>Problème n°2 : "Curse Dimensionality"</h3>
+						<h3>Problem #2 : "Curse Dimensionality"</h3>
 						<img src="./img/malediction1.svg" alt="combinatoire" width="650" style="background:none; border:none; box-shadow:none;">
-						<p><strong><img src="./img/plus.svg" alt="combinatoire" width="50" style="background:none; border:none; box-shadow:none;"></strong> de dimentions = <strong><img src="./img/moins.svg" alt="combinatoire" width="50" style="background:none; border:none; box-shadow:none;"></strong> couverture à nb points égal</p>
+						<p><strong><img src="./img/plus.svg" alt="combinatoire" width="50" style="background:none; border:none; box-shadow:none;"></strong> of dimensions = <strong><img src="./img/moins.svg" alt="combinatoire" width="50" style="background:none; border:none; box-shadow:none;"></strong> coverage with equal nb of points</p>
 					</section>
 					<section>
-						<h3>Un exemple avec Netlogo</h3>
-						<p>le modèle Ants</p>
+						<h3>An example with Netlogo</h3>
+						<p>Ants model</p>
 						<img src="./img/ants_situationInitiale.svg" alt="combinatoire" width="450" style="background:none; border:none; box-shadow:none;">
 					</section>
 					<section>
-						<h3>Des règles simples</h3>
-						<p><img src="./img/ants_eating.svg" alt="combinatoire" width="200" style="background:none; border:none; box-shadow:none;"> Utilisation de traces ou "phéromones"</p>
-						<p><img src="./img/ants_rule2.svg" alt="combinatoire" width="200" style="background:none; border:none; box-shadow:none;"> Alignement avec les traces les plus fortes</p>
+						<h3>Simple rules</h3>
+						<p><img src="./img/ants_eating.svg" alt="combinatoire" width="200" style="background:none; border:none; box-shadow:none;"> Use of traces or "pheromones"</p>
+						<p><img src="./img/ants_rule2.svg" alt="combinatoire" width="200" style="background:none; border:none; box-shadow:none;"> Alignment with the strongest traces</p>
 					</section>
 					<section>
-						<h3>Comportement</h3>
+						<h3>Behaviour</h3>
 						<img src="./img/fonctionnement_ants.png" alt="fonctionnement de ants" width="90%" style="background:none; border:none; box-shadow:none;">
 					</section>
 					<section>
-						<h3>Exemple de dynamique</h3>
+						<h3>Example of dynamics</h3>
 						<img src="./img/ants.gif" alt="dynamique" width="60%" style="background:none; border:none; box-shadow:none;">
 					</section>
 					<section>
-						<h3>Le BehaviorSpace de Netlogo</h3>
+						<h3>Netlogo's BehaviorSpace</h3>
 						<img src="./img/BS_config.png" alt="BS configuration" height="45%" style="background:none; border:none; box-shadow:none;">
-						<p>cette config produit 4810 simulations</p>
+						<p>this configuration produces 4810 simulations</p>
 					</section>
 					<section>
-						<h3>Mesurer la stockasticité</h3>
+						<h3>Stockasticity measurement</h3>
 						<img src="./img/mesure_stock.png" alt="stockasticité" width="80%" style="background:none; border:none; box-shadow:none;">
-						<p>Observer l'effet du nombre de réplications</p>
+						<p>Measure the role of randomness in simulations?</p>
 					</section>
 					<section>
-						<h3>Chercher dans la donnée</h3>
+						<h3>Search in the data</h3>
 						<img src="./img/my_plot.png" alt="plot result BS" width="80%" style="background:none; border:none; box-shadow:none;">
-						<p>Observer les effets combinés de dépot ET diffusion de phéromones</p>
+						<p>Observe the combined effects of deposition AND diffusion of pheromones</p>
 					</section>
 				</section>
 				<section>
 					<section>
-						<h2>Analyse de sensibilité ?</h2>
-						<h3>Quelques solutions</h3>
+						<h2>Sensitivity analysis?</h2>
+						<h3>Some solutions include</h3>
 						<img src="./img/gauld_jetpack.interior17.jpg" alt="strategie" width="60%" style="background:none; border:none; box-shadow:none;">
 					</section>
 					<section>
-						<h3>des méthodes plus sioux ... </h3>
+						<h3>Sioux methods ... </h3>
 						<img src="./img/Fig20.png" alt="methodes" width="45%" style="float:left; background:none; border:none; box-shadow:none;">
 						<img src="./img/sioux.gif" alt="sioux" width="45%" style="float:rigth">
 						<img src="./img/garland_logo.png" alt="mexico" width="45%" style="float:center; background:none; border:none; box-shadow:none;">
 					</section>
 					<section>
-						<h3>ou changer d'approche !</h3>
-						<p><small>Organiser une mise en tension entre les choix Input - Output</small></p>
+						<h3>or change your approach!</h3>
+						<p><small>Organize a tension between the Input - Output choices</small></p>
 						<img src="./img/tension_in_out.png" alt="mexico" width="90%" style="background:none; border:none; box-shadow:none;">
 					</section>
 					<section>
-						<h3>Quelle mise en tension ?</h3>
-						<p><small>Des critères quantifiés pour "guider" une exploration automatisée</small></p>
+						<h3>Where can I pull?</h3>
+						<p><small>Quantified criteria to "guide" an automated exploration</small></p>
 						<img src="./img/tapis_roulant.svg" alt="mexico" width="45%" style="background:none; border:none; box-shadow:none;">
 					</section>
 					<section>
-						<h3>Formaliser les attentes</h3>
-						<p><small>Quelles valeurs de (diffusion, évaporation) minimisent le temps de consommation des trois tas de nourriture ?</small></p>
-						<img src="./img/ants_objectives.svg" alt="objectifs" width="45%" style="float:left;background:none; border:none; box-shadow:none;">
+						<h3>Formalize expectations</h3>
+						<p><small>What values of (diffusion, evaporation) minimize the consumption time of the three food piles?</small></p>
+						<img src="./img/ants_objectives.svg" alt="objectifs" width="45%" style="background:none; border:none; box-shadow:none;">
 						<ul width="40%">
-							<li>Objectif, minimiser le temps pour épuiser la ressource</li>
+							<li>Objective, minimize time to exhaust the resource</li>
 						</ul>
 					</section>
 					<section>
-						<h3>Utiliser un algo. génétique comme algo de calibration</h3>
+						<h3>Use a genetic algo. as a calibration algo</h3>
 						<img src="./img/ga.png" alt="objectifs" width="80%" style="background:none; border:none; box-shadow:none;">
 					</section>
 					<section>
-						<h3>Revenons à nos fourmis</h3>
-						<img src="./img/BSearch_netlogo.png" alt="objectifs" width="80%" style="background:none; border:none; box-shadow:none;">
-						<p><small>Le Behavior Search est intégré à Netlogo depuis la version 6</small></p>
+						<h3>Optimization in progress</h3>
+						<video preload="auto" controls="controls" src="video/replications.mp4" width="500"></video>
 					</section>
 					<section>
-						<h3>Une petite conclusion à mi-parcours</h3>
+						<h3>Let's get back to our ants</h3>
+						<img src="./img/BSearch_netlogo.png" alt="objectifs" width="80%" style="background:none; border:none; box-shadow:none;">
+						<p><small>Behavior Search is integrated with Netlogo since version 6</small></p>
+					</section>
+					<section>
+						<h3>Pomic with R</h3>
+						<p>Pomic (<i>Pattern Oriented Modelling Information Criterion</i>) is an R package to evaluate the impact of choices in <i>pattern oriented modeling</i> (Piou et al. (<a href="https://www.sciencedirect.com/science/article/pii/S030438000900324X?via%3Dihub">2009</a>))</p>
+					</section>
+					<section>
+						<h3>A short mid-term conclusion</h3>
 						<ul>
-							<li>Les algo. génétiques rationaliseny un peu le calcul</li>
+							<li>Genetic algo. rationalize the calculation a little</li>
 							<li>Mais : </li>
 							<ul>
-								<li>On a besoin de paralléliser à plus grande échelle</li>
-								<li>Utiliser des algo. pensés pour l'exploration ABM</li>
+								<li>We need to parallelize on a larger scale</li>
+								<li>Use algo. designed for ABM exploration</li>
 							</ul>
 						</ul>
 					</section>
@@ -237,63 +260,67 @@
 						<img src="./img/tumblr_okqynmxwrm1rwkrdbo1_500.jpg" alt="BD HPC" width="60%" style="background:none; border:none; box-shadow:none;">
 					</section>
 					<section>
-						<h3>L'architecture</h3>
+						<h3>The architecture</h3>
 						<img src="./img/openmoleGalRaw.png" alt="OpenMole ideas" width="80%" style="background:none; border:none; box-shadow:none;">
+					</section>
+					<section>
+						<h3>L'interface dans un browser</h3>
+						<img src="./img/interface.png" alt="L'interface openMole" width="80%" style="background:none; border:none; box-shadow:none;">
 					</section>
 					<section>
 						<h3>Le modèle Ants dans OpenMole</h3>
 						<pre style="brush: scala"><code>
 	val ants =
-  NetLogo5Task(workDirectory / "ants.nlogo", cmds) set (
-    // Map the OpenMOLE variables to NetLogo variables
-    netLogoInputs += (gPopulation, "gpopulation"),
-    netLogoInputs += (gDiffusionRate, "gdiffusion-rate"),
-    netLogoInputs += (gEvaporationRate, "gevaporation-rate"),
-    netLogoOutputs += ("final-ticks-food1", food1),
-    netLogoOutputs += ("final-ticks-food2", food2),
-    netLogoOutputs += ("final-ticks-food3", food3),
-    // The seed is used to control the initialisation of the random number generator of NetLogo
-    inputs += seed,
-    outputs += seed
-  )
+	NetLogo5Task(workDirectory / "ants.nlogo", cmds) set (
+		// Map the OpenMOLE variables to NetLogo variables
+		netLogoInputs += (gPopulation, "gpopulation"),
+		netLogoInputs += (gDiffusionRate, "gdiffusion-rate"),
+		netLogoInputs += (gEvaporationRate, "gevaporation-rate"),
+		netLogoOutputs += ("final-ticks-food1", food1),
+		netLogoOutputs += ("final-ticks-food2", food2),
+		netLogoOutputs += ("final-ticks-food3", food3),
+		// The seed is used to control the initialisation of the random number generator of NetLogo
+		inputs += seed,
+		outputs += seed
+	)
 							</code></pre>
 					</section>
 					<section>
 						<h3>Méthodes</h3>
 						<ul>
 							<li>Data reconstruction</li>
-    					<li>Parameter estimation</li>
-    					<li>Sensitivity analysis</li>
-    					<li>Robustness assessment</li>
-    					<li>Optimisation</li>
-    					<li>Diversity research</li>
-    					<li>Hybrid, ex: optimisation + diversity</li>
+							<li>Parameter estimation</li>
+							<li>Sensitivity analysis</li>
+							<li>Robustness assessment</li>
+							<li>Optimisation</li>
+							<li>Diversity research</li>
+							<li>Hybrid, ex: optimisation + diversity</li>
 						</ul>
 					</section>
 					<section>
 						<h3>Exemple sur ants</h3>
 						<pre style="brush: scala"><code>
-//genetic algorithm
-val nsga2 =
-  NSGA2(
-    mu = 200,
-    genome = Seq(gPopulation in (25.0, 250.0), gDiffusionRate in (0.0, 99.0), gEvaporationRate in (0.0, 99.0)),
-    objectives = Seq(food1, food2, food3),
-    replication = Replication(seed = seed, aggregation = Seq(median, median, median), max = 100)
-  )
-//Workflow
-val evolution =
-	  SteadyStateEvolution(
-	    algorithm = nsga2,
-	    evaluation = ants,
-	    parallelism = 500,
-	    termination = 2000
-	  )
+	//genetic algorithm
+	val nsga2 =
+	NSGA2(
+		mu = 200,
+		genome = Seq(gPopulation in (25.0, 250.0), gDiffusionRate in (0.0, 99.0), gEvaporationRate in (0.0, 99.0)),
+		objectives = Seq(food1, food2, food3),
+		replication = Replication(seed = seed, aggregation = Seq(median, median, median), max = 100)
+	)
+	//Workflow
+	val evolution =
+		SteadyStateEvolution(
+			algorithm = nsga2,
+			evaluation = ants,
+			parallelism = 500,
+			termination = 2000
+		)
 	</code></pre>
 					</section>
 					<section>
-						<h3>Les environnements</h3>
-						<p>Les environnements pris en compte</p>
+						<h3>Environnements</h3>
+						<p>Environments taken into account</p>
 						<ul>
 							<li>Multi-thread</li>
 							<li>Delegation through SSH</li>
@@ -306,118 +333,24 @@ val evolution =
 							<li>Adhoc Desktop Grid</li>
 						</ul>
 					</section>
-					<section>
-						<h3>Quelques exemples</h3>
-						<pre style="brush: scala"><code>
-//grille
-val env = EGIEnvironment("vo.complex-systems.eu")
-
-//local
-val env = LocalEnvironment(10)
-	</code></pre>
-					</section>
-					<section>
-						<img src="./img/doc.jpg" alt="OpenMole ideas" width="60%" style="background:none; border:none; box-shadow:none;">
-						<blockquote>
-						<small>&ldquo;ça marche à l'électricité, mais il faut une réaction nucléaire pour produire les 2,21 gigowatts d'électricité nécessaires.&rdquo; (Emmett Brown 1985).</small>
-						</blockquote>
-					</section>
-					<section>
-						<h3>Plug !</h3>
-						<pre style="brush: scala"><code>
-// Plug everything together to create the workflow
-(evolution on env by 20 hook savePopulationHook)
-</code></pre>
-					</section>
-					<section>
-						<h3>L'optimisation en marche</h3>
-						<video preload="auto" controls="controls" src="video/replications.mp4" width="500"></video>
-					</section>
-					<section>
-						<h3>L'interface dans un browser</h3>
-						<img src="./img/interface.png" alt="L'interface openMole" width="80%" style="background:none; border:none; box-shadow:none;">
-					</section>
+				</section>
+							<section>
+					<h2>Thank you for your attention</h2>
+					<img src="./img/wokshop.jpg" alt="workshop2016" width="100%" style="background:none; border:none; box-shadow:none;">
+					<p><small>The OpenMole team is also a human adventure that is built on paper!</small></p>
+					<p>OpenMole Summer School ! 24-29 june 2019: <a href="https://exmodelo.org/">https://exmodelo.org/</a></p>
 				</section>
 				<section>
-					<section>
-						<h2>Les méthodes disponibles</h2>
-						<img src="./img/gauld_lib.jpg" alt="strategie" width="60%" style="background:none; border:none; box-shadow:none;">
-					</section>
-					<section>
-						<h3>Calibration</h3>
-						<ul>
-							<li>Sur un seul critère</li>
-						</ul>
-						</br>
-						<img src="./img/meth_calibrationMono.png" alt="cal_single" width="60%" style="background:none; border:none; box-shadow:none;">
-						</br>
-						<ul>
-							<li>Multi-critères</li>
-						</ul>
-						</br>
-						<img src="./img/meth_calibrationMulti.png" alt="cal_multicrit" width="60%" style="background:none; border:none; box-shadow:none;">
-						<p>Dans OpenMole &rarr; NSGA2 algorithm et SteadyStateEvolution schema</p>
-					</section>
-					<section>
-						<h3>Profiles</h3>
-						<img src="./img/meth_profiles.png" alt="cal_profiles" width="60%" style="background:none; border:none; box-shadow:none;">
-						<p>Dans OpenMole &rarr; GenomeProfile algorithm et SteadyStateEvolution schema</p>
-					</section>
-					<section>
-						<h3>PSE (Pattern Space Exploration)</h3>
-						<img src="./img/meth_pse.png" alt="cal_pse" width="60%" style="background:none; border:none; box-shadow:none;">
-						<p>Dans OpenMole &rarr; PSE algorithm et SteadyStateEvolution schema</p>
-					</section>
-					<section>
-						<h3>Autres "Design of Experiments"</h3>
-						<ul>
-							<li>Grid Sampling, Uniform Distribution</li>
-							<li>Sampling depuis un CSV</li>
-							<li>Latin Hypercube</li>
-							<li>Sobol Sequence</li>
-							<li>...</li>
-						</ul>
-					</section>
-					<section>
-						<h3>Pomic avec R et OpenMole</h3>
-						<p>Pomic (<i>Pattern Oriented Modelling Information Criterion</i>) est un package R pour évaluer l'impact des choix dans du <i>pattern oriented modeling</i></p>
-
-					</section>
+					<h3>Go deeper</h3>
+					<small>
+					<ul>
+						<li>Chérel G., Cottineau C., Reuillon R., 2015, « Beyond Corroboration : Strengthening Model Validation by Looking for Unexpected Patterns. », PLoS ONE 10(9).</li>
+						<li>Thiele, Jan C., Kurth, Winfried and Grimm, Volker (2014) 'Facilitating Parameter Estimation and Sensitivity Analysis of Agent-Based Models: A Cookbook Using NetLogo and 'R'' Journal of Artificial Societies and Social Simulation 17 (3) 11 http://jasss.soc.surrey.ac.uk/17/3/11.html.</li>
+						<li>&#9825; David O′Sullivan, George L. W. Perry, 2013, Spatial Simulation: Exploring Pattern and Process, Wiley-Blackwell</li>
+						<li>&#9825; Volker Grimm, Eloy Revilla, Uta Berger, Florian Jeltsch, Wolf M. Mooij, Steven F. Railsback, Hans-Hermann Thulke, 2005, <i>Pattern-Oriented Modeling of Agent-Based Complex Systems: Lessons from Ecology</i>,Science, Vol. 310, Issue 5750, pp. 987-991.</li>
+					</ul>
+				</small>
 				</section>
-				<section>
-	        <h2>Liens Utiles</h2>
-	        <table>
-	          <tr>
-	            <td>Documentation</td>
-	            <td><a href="http://www.openmole.org">www.openmole.org</a></td>
-	          </tr>
-						<tr>
-	            <td>User list</td>
-	            <td><a href="https://discourse.iscpif.fr/c/openmole">https://discourse.iscpif.fr/c/openmole</a></td>
-	          </tr>
-	          <tr>
-	            <td>Development version</td>
-	            <td><a href="http://next.openmole.org">next.openmole.org</a></td>
-	          </tr>
-	          <tr>
-	            <td>Source code</td>
-	            <td><a href="https://github.com/openmole/openmole">github.com/openmole</a></td>
-	          </tr>
-	          <tr>
-	            <td>Market place</td>
-	            <td><a href="https://github.com/openmole/openmole-market">github.com/openmole-market</a></td>
-	          </tr>
-	          <tr>
-	            <td>Demo instance</td>
-	            <td><a href="http://demo.openmole.org">demo.openmole.org</a></td>
-	          </tr>
-	        </table>
-	      </section>
-	      <section>
-	        <h2>Merci de votre attention</h2>
-	        <img src="./img/wokshop.jpg" alt="workshop2016" width="100%" style="background:none; border:none; box-shadow:none;">
-					<p><small>L'équipe OpenMole c'est aussi une aventure humaine qui se construit sur du papier !</small></p>
-	      </section>
 			</div>
 		</div>
 
@@ -425,17 +358,29 @@ val env = LocalEnvironment(10)
 		<script src="js/reveal.js"></script>
 
 		<script>
-			// More info about config & dependencies:
-			// - https://github.com/hakimel/reveal.js#configuration
-			// - https://github.com/hakimel/reveal.js#dependencies
+
+			// More info https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
 				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/search/search.js', async: true },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
 				]
 			});
+
 		</script>
+
 	</body>
 </html>
