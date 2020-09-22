@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>reveal.js – The HTML Presentation Framework</title>
+		<title>OpenMole - MISSABMS</title>
 
 		<meta name="description" content="Sensity analysis for MISSABMS">
 		<meta name="author" content="Etienne DELAY">
@@ -42,16 +42,16 @@
 			<div class="slides">
 				<section>
 					<h3>Exploring Agent Based Models </br>
-						from siluation to results production</h3>
+						from siluation to results</h3>
 					<p style="text-align:center;">
-						<small>Par <a href="https://www.researchgate.net/profile/Etienne_Delay">Etienne Delay</a> and <a href="">Bruno Bonté</a></small> </br>
-						<small>September 18th 2018, <a href ="http://www.agropolis.org/miss-abms/">MISSABMS</a></small></br>
+						<small>By <a href="https://www.researchgate.net/profile/Etienne_Delay">Etienne Delay</a></small> </br>
+						<small>September 22th 2020, <a href ="http://www.agropolis.org/miss-abms/">MISS-ABMS</a></small></br>
 						<small>Based on presentation maid for <a href="https://maps.hypotheses.org/">MAPS</a> by E. Delay and S. Rey Coyrehourcq </small>
 					</p>
 				</section>
 				<section>
 					<section>
-						<h2>Agent based model exploration</h2>
+						<h2>Why explore simulation models</h2>
 						<img src="./img/gauld_reaction.jpg" alt="strategie" width="60%" style="background:none; border:none; box-shadow:none;">
 
 					</section>
@@ -72,7 +72,7 @@
 					</section>
 					<section>
 						<h3>Explore to understand</h3>
-						<h4>The "virtual laboratory", an agitator of ideas but not only ... </h4>
+						<h4>The "virtual laboratory", it shake your ideas but not only ... </h4>
 						<img data-src="./img/laundry.gif" alt="waching machine" height="200" style="background:none; border:none; box-shadow:none;"></img>
 						<p><small>expected / simulated behaviours ? failures ? robustness (s)?</small></p>
 					</section>
@@ -256,7 +256,7 @@
 				</section>
 				<section>
 					<section>
-						<h2>High Performance Computing : OpenMole !</h2>
+						<h2>Teaser High Performance Computing : OpenMole !</h2>
 						<img src="./img/tumblr_okqynmxwrm1rwkrdbo1_500.jpg" alt="BD HPC" width="60%" style="background:none; border:none; box-shadow:none;">
 					</section>
 					<section>
@@ -264,74 +264,32 @@
 						<img src="./img/openmoleGalRaw.png" alt="OpenMole ideas" width="80%" style="background:none; border:none; box-shadow:none;">
 					</section>
 					<section>
-						<h3>L'interface dans un browser</h3>
+						<h3>Browser UI</h3>
 						<img src="./img/interface.png" alt="L'interface openMole" width="80%" style="background:none; border:none; box-shadow:none;">
+						<p>Test it : <a href="demo.openmole.org">demo.openmole.org</a></p>
 					</section>
 					<section>
-						<h3>Le modèle Ants dans OpenMole</h3>
-						<pre style="brush: scala"><code>
-	val ants =
-	NetLogo5Task(workDirectory / "ants.nlogo", cmds) set (
-		// Map the OpenMOLE variables to NetLogo variables
-		netLogoInputs += (gPopulation, "gpopulation"),
-		netLogoInputs += (gDiffusionRate, "gdiffusion-rate"),
-		netLogoInputs += (gEvaporationRate, "gevaporation-rate"),
-		netLogoOutputs += ("final-ticks-food1", food1),
-		netLogoOutputs += ("final-ticks-food2", food2),
-		netLogoOutputs += ("final-ticks-food3", food3),
-		// The seed is used to control the initialisation of the random number generator of NetLogo
-		inputs += seed,
-		outputs += seed
-	)
-							</code></pre>
+						<h3>One use case : <a href="https://covprehension.org/2020/03/30/q6.html">https://covprehension.org/</a></h3>
+						<p> Q6 : lockdown : Since transmission between individuals is the main driver of the epidemic, let's make sure that individuals no longer meet each other!</p>
+						<img src="https://covprehension.org/img/logo/logo-long.png" height="60px"></img>
+						<p>You should try to achieve both objectives : <strong>minimize</strong> the "number of days of confinement" and the "proportion of infected population (%)"</p>
 					</section>
 					<section>
-						<h3>Méthodes</h3>
-						<ul>
-							<li>Data reconstruction</li>
-							<li>Parameter estimation</li>
-							<li>Sensitivity analysis</li>
-							<li>Robustness assessment</li>
-							<li>Optimisation</li>
-							<li>Diversity research</li>
-							<li>Hybrid, ex: optimisation + diversity</li>
-						</ul>
+						<h3>PSE algorithm</h3>
+						<p>explore the output's diversity of a model</p>
+						<img src="https://miniocodimd.openmole.org/codimd/uploads/upload_63b4913960a80934b5ccdb2924d83a52.png" height="350px"></img>
 					</section>
 					<section>
-						<h3>Exemple sur ants</h3>
-						<pre style="brush: scala"><code>
-	//genetic algorithm
-	val nsga2 =
-	NSGA2(
-		mu = 200,
-		genome = Seq(gPopulation in (25.0, 250.0), gDiffusionRate in (0.0, 99.0), gEvaporationRate in (0.0, 99.0)),
-		objectives = Seq(food1, food2, food3),
-		replication = Replication(seed = seed, aggregation = Seq(median, median, median), max = 100)
-	)
-	//Workflow
-	val evolution =
-		SteadyStateEvolution(
-			algorithm = nsga2,
-			evaluation = ants,
-			parallelism = 500,
-			termination = 2000
-		)
-	</code></pre>
+						<h3>One point of interest</h3>
+						<p><small>But hundreds of simulations</small></p>
+						<img src="https://miniocodimd.openmole.org/codimd/uploads/upload_819f380e6c99f6a78dbe74a1c0bf0935.png"height="350px"></img>
+						<p><small>you can see that the dots can be a bit scattered compared to the median</small></p>
 					</section>
 					<section>
-						<h3>Environnements</h3>
-						<p>Environments taken into account</p>
-						<ul>
-							<li>Multi-thread</li>
-							<li>Delegation through SSH</li>
-							<li>PBS (on ssh)</li>
-							<li>SLURM (on ssh)</li>
-							<li>Condor (on ssh)</li>
-							<li>SGE (on ssh)</li>
-							<li>OAR (on ssh)</li>
-							<li>EGI Grid (trough DIRAC)</li>
-							<li>Adhoc Desktop Grid</li>
-						</ul>
+						<h3>Where it comes from</h3>
+						<p><small>OSE explore the multiples antecedents of a pattern</small></p>
+						<img src="https://miniocodimd.openmole.org/codimd/uploads/upload_c8319512be49d58a2c26c9930c5e0120.png"height="350px"></img>
+						<p><small>A variety of configurations can produce the expected result, but the majority requires a very fast lockdown (1 day after the first case)</small></p>
 					</section>
 				</section>
 							<section>
